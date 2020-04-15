@@ -23,6 +23,7 @@ std::vector<int> FilterIDs;
 
 /* Utility functions that serve some purpose */
 
+// Extracts a char pointer from a Python string
 char* ExtractCharPtr(PyObject* service) {
     
     PyObject* repr_filt = PyObject_Repr(service);
@@ -35,6 +36,7 @@ char* ExtractCharPtr(PyObject* service) {
     return remover;
 }
 
+// Converts a Char pointer to a Wide Char pointer
 const wchar_t* ConvertWideChar(char* input) {
     wchar_t* wString = new wchar_t[8192];
     MultiByteToWideChar(CP_ACP, 0, input, -1, wString, 4096);
@@ -113,8 +115,6 @@ PyObject* AddName(PyObject*, PyObject* name)
     char* filter = ExtractCharPtr(name);
 
     FilterNames.push_back(filter);
-    
-    //return PyBool_FromLong(1);
 
     Py_RETURN_NONE;
 }
@@ -130,6 +130,7 @@ PyObject* AddID(PyObject*, PyObject* id)
     Py_RETURN_NONE;
 }
 
+// Allows for the user to stop the program with a SIGINT (Ctrl+C)
 void SignalHandler(int signum) {
     Interrupted = true;
     std::cout << "Interrupt Signal received" << std::endl;
@@ -195,24 +196,29 @@ void ProcTermEvent(CBFS_Process::CBFSProcess* Sender,
 
 PyObject* Controller(PyObject*, PyObject* key_param)
 {
+    // Creates an instance of the Process
+    CBFS_Process::CBFSProcess* Process = new CBFS_Process::CBFSProcess();
     std::cout << "Initialised CBFS Controller" << std::endl;
 
+    // Initialises the signal
     Interrupted = false;
     signal(SIGINT, SignalHandler);
 
-    CBFS_Process::CBFSProcess* Process = new CBFS_Process::CBFSProcess();
-
+    // Sets the CBFS key
     LPCSTR newkey = ExtractCharPtr(key_param);
     Process->SetRegistrationKey(newkey);
 
     AddHandlers(Process);
 
+    // Initialises the Process
     LPCSTR prod_name = "CBFSDriver";
     Process->Initialize(prod_name);
 
+    // Starts the filter on processes
     Process->StartFilter();
     AddFilters(Process);
 
+    // Continues until not interrupted
     while (!Interrupted) {}
     
     std::cout << "\nEnd loop" << std::endl;
@@ -223,7 +229,7 @@ PyObject* Controller(PyObject*, PyObject* key_param)
 
 #pragma endregion
 
-#pragma region CPython Stuff
+#pragma region CPython Methods
 
 static PyMethodDef CBFSController_methods[] = {
     // The first property is the name exposed to Python, fast_tanh, the second is the C++
