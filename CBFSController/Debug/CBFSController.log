@@ -1,0 +1,12 @@
+﻿  cbfs.cpp
+  pch.cpp
+  Generating Code...
+     Creating library C:\Users\User\Documents\benjjo-project3-cbfs\Project3-CBFS\Debug\CBFSController.lib and object C:\Users\User\Documents\benjjo-project3-cbfs\Project3-CBFS\Debug\CBFSController.exp
+CBFSProcess.lib(CBFSProcess.obj) : warning LNK4099: PDB 'vc90.pdb' was not found with 'CBFSProcess.lib(CBFSProcess.obj)' or at 'C:\Users\User\Documents\benjjo-project3-cbfs\Project3-CBFS\Debug\vc90.pdb'; linking object as if no debug info
+CBFSProcess.lib(cbproc.obj) : warning LNK4099: PDB 'vc90.pdb' was not found with 'CBFSProcess.lib(cbproc.obj)' or at 'C:\Users\User\Documents\benjjo-project3-cbfs\Project3-CBFS\Debug\vc90.pdb'; linking object as if no debug info
+CBFSProcess.lib(evtlog.obj) : warning LNK4099: PDB 'vc90.pdb' was not found with 'CBFSProcess.lib(evtlog.obj)' or at 'C:\Users\User\Documents\benjjo-project3-cbfs\Project3-CBFS\Debug\vc90.pdb'; linking object as if no debug info
+CBFSProcess.lib(install.obj) : warning LNK4099: PDB 'vc90.pdb' was not found with 'CBFSProcess.lib(install.obj)' or at 'C:\Users\User\Documents\benjjo-project3-cbfs\Project3-CBFS\Debug\vc90.pdb'; linking object as if no debug info
+CBFSProcess.lib(misc.obj) : warning LNK4099: PDB 'vc90.pdb' was not found with 'CBFSProcess.lib(misc.obj)' or at 'C:\Users\User\Documents\benjjo-project3-cbfs\Project3-CBFS\Debug\vc90.pdb'; linking object as if no debug info
+CBFSProcess.lib(ntapi.obj) : warning LNK4099: PDB 'vc90.pdb' was not found with 'CBFSProcess.lib(ntapi.obj)' or at 'C:\Users\User\Documents\benjjo-project3-cbfs\Project3-CBFS\Debug\vc90.pdb'; linking object as if no debug info
+CBFSProcess.lib(ucblib.obj) : warning LNK4099: PDB 'vc90.pdb' was not found with 'CBFSProcess.lib(ucblib.obj)' or at 'C:\Users\User\Documents\benjjo-project3-cbfs\Project3-CBFS\Debug\vc90.pdb'; linking object as if no debug info
+  CBFSController.vcxproj -> C:\Users\User\Documents\benjjo-project3-cbfs\Project3-CBFS\Debug\CBFSController.pyd
